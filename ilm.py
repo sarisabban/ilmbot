@@ -17,7 +17,7 @@ WEBlist	= [Website1 , Website2 , Website3]
 RElist	= [WebRE1 , WebRE2 , WebRE3]
 
 #Schedualing:
-TweetTime = '19:00'
+TweetTime = '20:35'
 SleepTime  = 61
 
 #Twitter Credentials:
@@ -74,13 +74,15 @@ def Tweet (WebList , Relist):
 		try:
 			Result = GetLink(TheWeb , TheRE)
 			TheTweet = Result[1] + '\n' + Result[0] + '\n' + '#علوم'
-#			api.update_status(TheTweet)
+			api.update_status(TheTweet)
 			print('\x1b[34m' + '[+] Tweet at ' + dateSTR + '\x1b[0m' + '\n' + TheTweet + '\n')
 			time.sleep(SleepTime)
 
-		except Exception:
+		except Exception as TheError:
 			print('\x1b[31m' + '[-] ERROR' + '\x1b[0m')
+			#print(TheError)
 			time.sleep(SleepTime)
+			continue
 #-----------------------------------------------------------------------------------------------------------
 while True:
 	dateSTR = datetime.datetime.now().strftime('%H:%M')
