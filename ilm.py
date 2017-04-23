@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-	  # <--- install module with pip3
+# -*- coding: utf-8 -*-
+# <--- install module with pip3
 import tweepy , urllib.request , re , random , datetime , time
 
 #Tuples of Websites and their Regular Expressions:
