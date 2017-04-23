@@ -16,10 +16,6 @@ WebRE3 = 'href="(http://n-scientific.org/[0-9].*?)"\s.*?</h3>'
 WEBlist	= [Website1 , Website2 , Website3]
 RElist	= [WebRE1 , WebRE2 , WebRE3]
 
-#Schedualing:
-TweetTime = '20:35'
-SleepTime  = 61
-
 #Twitter Credentials:
 consumer_key		= ''
 consumer_secret		= ''
@@ -69,27 +65,20 @@ def GetLink (Website , RegularExpression):
 
 
 
-def Tweet (WebList , Relist):
+def Tweet (WebList , Relist , DelayTime):
 	for TheWeb , TheRE in zip(WebList , Relist):
 		try:
+			dateSTR = datetime.datetime.now().strftime('%H:%M')
 			Result = GetLink(TheWeb , TheRE)
 			TheTweet = Result[1] + '\n' + Result[0] + '\n' + '#علوم'
-			api.update_status(TheTweet)
+			#api.update_status(TheTweet)
 			print('\x1b[34m' + '[+] Tweet at ' + dateSTR + '\x1b[0m' + '\n' + TheTweet + '\n')
-			time.sleep(SleepTime)
+			time.sleep(DelayTime)
 
 		except Exception as TheError:
 			print('\x1b[31m' + '[-] ERROR' + '\x1b[0m')
-			#print(TheError)
-			time.sleep(SleepTime)
+			print(TheError)
+			time.sleep(60)
 			continue
 #-----------------------------------------------------------------------------------------------------------
-while True:
-	dateSTR = datetime.datetime.now().strftime('%H:%M')
-	if dateSTR == TweetTime:
-		Tweet(WEBlist , RElist)
-		time.sleep(3600)
-		Tweet(WEBlist , RElist)
-		time.sleep(75000)
-	else:
-		continue
+Tweet(WEBlist , RElist , 3600)
