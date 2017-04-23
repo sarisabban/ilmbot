@@ -2,19 +2,13 @@
 	  # <--- install module with pip3
 import tweepy , urllib.request , re , random , datetime , time
 
-#List of Websites:
-Website1 = 'http://www.scientificsaudi.com/main/articles'
-Website2 = 'https://syr-res.com'
-Website3 = 'http://n-scientific.org'
+#Tuples of Websites and their Regular Expressions:
+Website1 = ('http://www.scientificsaudi.com/main/articles' , 'href="(http://www.scientificsaudi.com/ss/[0-9]*?)">')
+Website2 = ('https://syr-res.com' , 'href="(https://syr-res.com/article/[0-9].*?.html)')
+Website3 = ('http://n-scientific.org' , 'href="(http://n-scientific.org/[0-9].*?)"\s.*?</h3>')
 
-#Regular Expression of Each Website:
-WebRE1 = 'href="(http://www.scientificsaudi.com/ss/[0-9]*?)">'
-WebRE2 = 'href="(https://syr-res.com/article/[0-9].*?.html)'
-WebRE3 = 'href="(http://n-scientific.org/[0-9].*?)"\s.*?</h3>'
-
-#Lists of Websites and their Regular Expressions
+#Lists of Tuples: Websites and their Regular Expressions
 WEBlist	= [Website1 , Website2 , Website3]
-RElist	= [WebRE1 , WebRE2 , WebRE3]
 
 #Twitter Credentials:
 consumer_key		= ''
@@ -65,20 +59,19 @@ def GetLink (Website , RegularExpression):
 
 
 
-def Tweet (WebList , Relist , DelayTime):
-	for TheWeb , TheRE in zip(WebList , Relist):
-		try:
-			dateSTR = datetime.datetime.now().strftime('%H:%M')
-			Result = GetLink(TheWeb , TheRE)
-			TheTweet = Result[1] + '\n' + Result[0] + '\n' + '#علوم'
-			#api.update_status(TheTweet)
-			print('\x1b[34m' + '[+] Tweet at ' + dateSTR + '\x1b[0m' + '\n' + TheTweet + '\n')
-			time.sleep(DelayTime)
+def Tweet (TheWeb , TheRE):
+	'''Tweets a weblink and its title'''
+	try:
+		dateSTR = datetime.datetime.now().strftime('%H:%M')
+		Result = GetLink(TheWeb , TheRE)
+		TheTweet = Result[1] + '\n' + Result[0] + '\n' + '#علوم'
+		api.update_status(TheTweet)
+		print('\x1b[34m' + '[+] Tweet at ' + dateSTR + '\x1b[0m' + '\n' + TheTweet + '\n')
 
-		except Exception as TheError:
-			print('\x1b[31m' + '[-] ERROR' + '\x1b[0m')
-			print(TheError)
-			time.sleep(60)
-			continue
+	except Exception as TheError:
+		print('\x1b[31m' + '[-] ERROR' + '\x1b[0m')
+		print(TheError)
 #-----------------------------------------------------------------------------------------------------------
-Tweet(WEBlist , RElist , 3600)
+random.shuffle(WEBlist)
+TheWebsite = WEBlist[0]
+Tweet(TheWebsite[0] , TheWebsite[1])
