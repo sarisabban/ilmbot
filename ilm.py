@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 	  # 	 # <--- install module with pip3
 import tweepy , bs4 , urllib.request , re , random , datetime , time
+from Keys import *
 
 #Tuples of Websites and their Regular Expressions:
 Website1 = ('http://www.scientificsaudi.com/main/articles' , 'http://www.scientificsaudi.com/ss/[0-9].*')
@@ -10,11 +11,7 @@ Website3 = ('http://n-scientific.org' , 'http://n-scientific.org/[0-9].*#')
 #Lists of Tuples: Websites and their Regular Expressions
 WEBlist	= [Website1 , Website2 , Website3]
 
-#Twitter Credentials:
-consumer_key		= ''
-consumer_secret		= ''
-access_token		= ''
-access_token_secret	= ''
+#Twitter Credentials Are Found in the Keys File.
 
 #Print Our Logo In The Terminal:
 print('''\x1b[32m
