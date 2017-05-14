@@ -48,6 +48,8 @@ def GetLink(TheWeb , TheRE):
 			article = urllib.request.urlopen(URL)
 			articledata=bs4.BeautifulSoup(article , 'html5lib')
 			Title = articledata.title.text
+			if re.search('–' , Title):
+				Title = Title.replace('–' , '-')
 			if re.search('Ř' , Title):
 				print('\x1b[31m' + '[-] Error')
 				print('Problem with page title encoding' + '\x1b[0m')
