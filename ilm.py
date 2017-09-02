@@ -79,7 +79,7 @@ def Tweet (TheWeb , TheRE):
 #-----------------------------------------------------------------------------------------------------------
 random.shuffle(WEBlist)
 TheWebsite = WEBlist[0]
-#Tweet(TheWebsite[0] , TheWebsite[1])
+Tweet(TheWebsite[0] , TheWebsite[1])
 
 #For development purposes: comment out line 82 and comment in line 85, that way the regular expression can be tested for new individual websites in isolation
 #GetLink(Website4[0] , Website4[1])
