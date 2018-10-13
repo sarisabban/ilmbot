@@ -12,10 +12,10 @@ This is a twitter bot specific for the ILM FM science podcast's twitter account.
 ## How to Use:
 1. Install Dependecies
 
-`sudo apt update && sudo apt full-upgrade && sudo apt install python-beautifulsoup python-lxml python-twython`
+`sudo apt update && sudo apt full-upgrade && sudo apt install python3-bs4 python3-lxml python3-twython`
 
 2. Add the Twitter credentials to the keys.py file.
-3. You can excute the script manually `python ilm.py`. But a more efficient way is to setup a crons job (times are in UTC):
+3. You can excute the script manually `python3 ilm.py PROTOCOL` where PROTOCOL can be article or rss. But a more efficient way is to setup a crons job (times are in UTC):
 
 `crontab -e`
 
