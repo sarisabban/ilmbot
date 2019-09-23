@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import urllib.request
 import urllib.parse
@@ -34,24 +34,24 @@ RSSlist = [	RSS1,
 
 # Website links and their regular expressions
 Website1 = ('http://www.scientificsaudi.com/main/articles',
-			'http://www.scientificsaudi.com/ss/[0-9].*')
+		'http://www.scientificsaudi.com/ss/[0-9].*')
 Website2 = ('https://syr-res.com',
-			'https://syr-res.com/article/[0-9].*?.html')
+		'https://syr-res.com/article/[0-9].*?.html')
 Website3 = ('http://n-scientific.org',
-			'http://n-scientific.org/[0-9].*#')
+		'http://n-scientific.org/[0-9].*#')
 Website5 = ('http://www.bbc.com/arabic/scienceandtech',
-			'/arabic/science-and-tech-[0-9].*')
+		'/arabic/science-and-tech-[0-9].*')
 Website6 = ('https://arabicedition.nature.com/',
-			'')												####################
+		'')
 Website7 = ('https://ara.reuters.com/news/internet',
-			'/article/')
+		'/article/')
 
 # A list websites and their regular expressions
 Weblist = [	#Website1,
-			Website2,
-			#Website3,
+			#Website2,
+			Website3,
 			#Website4,
-			#Website5,
+			Website5,
 			#Website6,
 			Website7]
 
@@ -87,8 +87,8 @@ def RSS(RSSURL):
 def Tweet(TEXT):
 	''' Tweet '''
 	TheTweet = '{}\n{}\n#علوم'.format(TEXT[0], TEXT[1])
-#	api = twython.Twython(key, secret, token, token_secret)
-#	api.update_status(TheTweet)
+	api = twython.Twython(key, secret, token, token_secret)
+	api.update_status(TheTweet)
 
 def main():
 	''' Run the script with a loop to by pass errors '''
