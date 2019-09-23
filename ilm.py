@@ -39,8 +39,6 @@ Website2 = ('https://syr-res.com',
 			'https://syr-res.com/article/[0-9].*?.html')
 Website3 = ('http://n-scientific.org',
 			'http://n-scientific.org/[0-9].*#')
-Website4 = ('https://oloom.news',
-			'https://oloom\.news/%.*')
 Website5 = ('http://www.bbc.com/arabic/scienceandtech',
 			'/arabic/science-and-tech-[0-9].*')
 Website6 = ('https://arabicedition.nature.com/',
