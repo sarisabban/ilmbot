@@ -18,16 +18,15 @@ secret       = ''
 token        = ''
 token_secret = ''
 
-# RSS links:
-RSS1 = 'http://feeds.bbci.co.uk/arabic/scienceandtech/rss.xml'
-RSS2 = 'http://arabic.cnn.com/rss/cnnarabic_scitech.rss'
-RSS3 = 'http://rss.dw.de/rdf/rss-ar-sci'
-RSS4 = 'http://feeds.reuters.com/reuters/scienceNews'#English
-RSS5 = 'http://feeds.nature.com/nature/rss/current'#English
-RSS6 = 'https://science.sciencemag.org/rss/twis.xml'#English
-
 # A list of RSS links
-RSSlist = [RSS1, RSS2, RSS3, RSS4, RSS5, RSS6]
+RSSlist = [
+'http://feeds.bbci.co.uk/arabic/scienceandtech/rss.xml',
+'http://arabic.cnn.com/rss/cnnarabic_scitech.rss',
+'http://rss.dw.de/rdf/rss-ar-sci',
+'http://feeds.reuters.com/reuters/scienceNews',#English
+'http://feeds.nature.com/nature/rss/current',#English
+'https://science.sciencemag.org/rss/twis.xml'#English
+]
 
 def RSS(RSSURL):
 	''' Get title and URL from an RSS link '''
