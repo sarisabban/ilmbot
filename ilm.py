@@ -7,12 +7,12 @@ import sys
 import time
 import random
 import twython
-import requests
 import datetime
+import requests
 import urllib.parse
 import urllib.request
 
-# Twitter credentials
+#Twitter Credentials
 key          = ''
 secret       = ''
 token        = ''
@@ -39,9 +39,9 @@ def RSS(RSSURL):
 
 def Tweet(TEXT):
 	''' Tweet '''
-	TheTweet = '{}\n{}\n#علوم'.format(TEXT[0], TEXT[1])
+	TheTweet = '{}\n{}\n'.format(TEXT[0], TEXT[1])
 	api = twython.Twython(key, secret, token, token_secret)
-	api.update_status(TheTweet)
+	api.update_status(status=TheTweet)
 
 def main():
 	''' Run the script with a loop to by pass errors '''
